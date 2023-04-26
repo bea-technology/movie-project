@@ -1,0 +1,28 @@
+<style>
+    .mb.active {
+        border-bottom: 4px #fff solid;
+    }
+</style>
+<div class="bgb lh60 ph25 cw">
+    <tbl_nm>
+        <cl class="l">
+            <span class="mdi mdi-home fs24"></span>
+        </cl>
+        <cl class="c fs16 b">
+            <grid_nm gaph40>
+                <div>
+                    <a href="/"><div class="mb ph4" n0="home">Home</div></a>
+                </div>
+                <div>
+                    <a href="/browse"><div class="mb ph4" n0="browse">Browse</div></a>
+                </div>
+                <div>
+                    <a href="/movies"><div class="mb ph4" n0="movies">Movie TV</div></a>
+                </div>
+            </grid_nm>
+        </cl>
+        <cl class="r">
+            <span class="mdi mdi-heart-outline fs24"></span>
+        </cl>
+    </tbl_nm>
+</div>

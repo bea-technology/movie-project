@@ -1,0 +1,136 @@
+<div class="pv150 pb40 bgb cw ph25" bind="nowPlaying,imgBase">
+    <div class="ov cov" style="background-image: URL('{{imgBase + nowPlaying[0].backdrop_path}}');">
+        <div class="ov bgb40"></div>
+    </div>
+    <div class="w20 m_w100 l tsh60">
+        <div class="fs34 b900">{{nowPlaying[0].original_title}}</div>
+        <div class="mt5">
+            <grid_nm gap5 style="color: gold;">
+                <div><span class="mdi fs18 mdi-star"></span></div>
+                <div><span class="mdi fs18 mdi-star"></span></div>
+                <div><span class="mdi fs18 mdi-star"></span></div>
+                <div><span class="mdi fs18 mdi-star-outline"></span></div>
+                <div><span class="mdi fs18 mdi-star-outline"></span></div>
+            </grid_nm>
+        </div>
+        <div class="mt10">
+            {{nowPlaying[0].overview}}
+        </div>
+        <div class="mt40">
+            <grid_nm gaph20>
+                <div>
+                    <button class="sbtn warning">Watch Now</button>
+                </div>
+                <div>
+                    <button class="sbtn light outline">Add to Watchlist</button>
+                </div>
+            </grid_nm>
+        </div>
+    </div>
+</div>
+<style>
+    .movieCard:hover {
+        transform: scale(1.1);
+    }
+
+    .movieCard:hover .ov {
+        display: block;
+    }
+</style>
+<div class="ph25 bgb l pv40 pb80" bind="popular,imgBase,topRated">
+    <div class="mt40">
+        <div>
+            <hr class="cc w100" />
+            <span class="fs24 b bgb pr20 cw">Now Playing</span>
+        </div>
+        <div wrapper class="mt40">
+            <div>
+                <grid_nm gaph20>
+                    <div style="width: 300px;" :for="nowPlaying as movie" :for-offset="1" class="movieCard ez">
+                        <a href="/movie/{{movie.id}}">
+                            <img src="{{imgBase + movie.poster_path}}" class="w100" />
+                            <div class="ov bgb40 h pointer">
+                                <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                            </div>
+                        </a>
+                    </div>
+                </grid_nm>
+            </div>
+        </div>
+    </div>
+    <div class="mt40">
+        <div>
+            <hr class="cc w100" />
+            <span class="fs24 b bgb pr20 cw">Popular Movies</span>
+        </div>
+        <div wrapper class="mt40">
+            <div>
+                <grid_nm gaph20>
+                    <div style="width: 300px;" :for="popular as movie" class="movieCard ez">
+                        <img src="{{imgBase + movie.poster_path}}" class="w100" />
+                        <div class="ov bgb40 h pointer">
+                            <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                        </div>
+                    </div>
+                </grid_nm>
+            </div>
+        </div>
+    </div>
+    <div class="mt40">
+        <div>
+            <hr class="cc w100" />
+            <span class="fs24 b bgb pr20 cw">Top Rated Movies</span>
+        </div>
+        <div wrapper class="mt40">
+            <div>
+                <grid_nm gaph20>
+                    <div style="width: 300px;" :for="topRated as movie" class="movieCard ez">
+                        <img src="{{imgBase + movie.poster_path}}" class="w100" />
+                        <div class="ov bgb40 h pointer">
+                            <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                        </div>
+                    </div>
+                </grid_nm>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="pv100"></div>
+<div class="pv100"></div>
+<script>
+    var imgBase = "https://image.tmdb.org/t/p/original";
+
+    var nowPlaying = [];
+    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
+        .then(res => res.json())
+        .then((json) => {
+            nowPlaying = json.results;
+            cl(nowPlaying);
+        });
+
+    var popular = [];
+    fetch('https://api.themoviedb.org/3/movie/popular?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
+        .then(res => res.json())
+        .then((json) => {
+            popular = json.results;
+            cl(popular);
+        });
+    var topRated = [];
+    fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
+        .then(res => res.json())
+        .then((json) => {
+            topRated = json.results;
+            cl(topRated);
+        });
+
+</script>
+
+<settings>
+    {
+    hasFooter: true,
+    hasHeader: true,
+    hasNav: true
+    }
+</settings>

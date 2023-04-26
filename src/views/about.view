@@ -1,0 +1,14 @@
+<div>
+    About View
+</div>
+<script>
+    
+</script>
+
+<settings>
+    {
+    hasFooter: true,
+    hasHeader: true,
+    hasNav: true
+    }
+</settings>
