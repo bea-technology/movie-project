@@ -19,7 +19,7 @@
         <div class="mt40">
             <grid_nm gaph20>
                 <div>
-                    <button class="sbtn warning">Watch Now</button>
+                    <a href="/movie/{{nowPlaying[0].id}}"><button class="sbtn warning">Watch Now</button></a>
                 </div>
                 <div>
                     <button class="sbtn light outline">Add to Watchlist</button>
@@ -67,10 +67,12 @@
             <div>
                 <grid_nm gaph20>
                     <div style="width: 300px;" :for="popular as movie" class="movieCard ez">
-                        <img src="{{imgBase + movie.poster_path}}" class="w100" />
-                        <div class="ov bgb40 h pointer">
-                            <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
-                        </div>
+                        <a href="/movie/{{movie.id}}">
+                            <img src="{{imgBase + movie.poster_path}}" class="w100" />
+                            <div class="ov bgb40 h pointer">
+                                <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                            </div>
+                        </a>
                     </div>
                 </grid_nm>
             </div>
@@ -85,10 +87,12 @@
             <div>
                 <grid_nm gaph20>
                     <div style="width: 300px;" :for="topRated as movie" class="movieCard ez">
-                        <img src="{{imgBase + movie.poster_path}}" class="w100" />
-                        <div class="ov bgb40 h pointer">
-                            <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
-                        </div>
+                        <a href="/movie/{{movie.id}}">
+                            <img src="{{imgBase + movie.poster_path}}" class="w100" />
+                            <div class="ov bgb40 h pointer">
+                                <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                            </div>
+                        </a>
                     </div>
                 </grid_nm>
             </div>
