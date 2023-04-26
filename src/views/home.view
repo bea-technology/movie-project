@@ -2,7 +2,7 @@
     <div class="ov cov" style="background-image: URL('{{imgBase + nowPlaying[0].backdrop_path}}');">
         <div class="ov bgb40"></div>
     </div>
-    <div class="w20 m_w100 l tsh60">
+    <div class="w25 m_w100 l tsh60">
         <div class="fs34 b900">{{nowPlaying[0].original_title}}</div>
         <div class="mt5">
             <grid_nm gap5 style="color: gold;">
@@ -17,12 +17,13 @@
             {{nowPlaying[0].overview}}
         </div>
         <div class="mt40">
-            <grid_nm gaph20>
-                <div>
-                    <a href="/movie/{{nowPlaying[0].id}}"><button class="sbtn warning">Watch Now</button></a>
+            <grid_nm gaph10>
+                <div class="w50">
+                    <a href="/"><button class="sbtn warning w100">Watch Now</button></a>
                 </div>
-                <div>
-                    <button class="sbtn light outline">Add to Watchlist</button>
+
+                <div class="w50">
+                    <button class="sbtn light outline w100">Add to Watchlist</button>
                 </div>
             </grid_nm>
         </div>
