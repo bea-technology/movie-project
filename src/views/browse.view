@@ -1,0 +1,14 @@
+<div class="pv100 fs22 c b900 cw">
+    Browse View
+</div>
+<script>
+    
+</script>
+
+<settings>
+    {
+    hasFooter: true,
+    hasHeader: true,
+    hasNav: true
+    }
+</settings>

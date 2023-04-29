@@ -15,7 +15,7 @@
                     <div style="width: 300px;" class="movieCard ez">
                         <img src="{{imgBase + movie.poster_path}}" class="w100 round2x sh40" />
                         <div class="ov bgb40 h pointer">
-                            <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                            <play class="cc z100 cw fs70 iconify tsh60" data-icon="mdi:play-circle"></play>
                         </div>
                         <button class="sbtn dark w100 mt40 lg">Watch Now</button>
                     </div>
@@ -26,11 +26,11 @@
                         <div class="fs34 b900">{{movie.original_title}}</div>
                         <div class="mt5">
                             <grid_nm gap5 style="color: gold;">
-                                <div><span class="mdi fs18 mdi-star"></span></div>
-                                <div><span class="mdi fs18 mdi-star"></span></div>
-                                <div><span class="mdi fs18 mdi-star"></span></div>
-                                <div><span class="mdi fs18 mdi-star-outline"></span></div>
-                                <div><span class="mdi fs18 mdi-star-outline"></span></div>
+                                <div><span class="iconify fs18" data-icon="mdi:star"></span></div>
+                                <div><span class="iconify fs18" data-icon="mdi:star"></span></div>
+                                <div><span class="iconify fs18" data-icon="mdi:star"></span></div>
+                                <div><span class="iconify fs18" data-icon="mdi:star-outline"></span></div>
+                                <div><span class="iconify fs18" data-icon="mdi:star-outline"></span></div>
                             </grid_nm>
                         </div>
                         <div class="mt10 w30 fs16 lh22 oh" style="height: 132px;">
@@ -40,7 +40,7 @@
                             <div class="ov bgw20 cov ra w50"
                                 style="background-image: URL('{{imgBase+movie.backdrop_path}}');">
                                 <div class="ov bgb40 pointer">
-                                    <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                                    <span class="cc z100 cw fs70 iconify tsh60" data-icon="mdi:play-circle"></span>
                                 </div>
                             </div>
                         </div>

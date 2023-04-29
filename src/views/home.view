@@ -10,11 +10,11 @@
             <div class="fs34 b900">{{nowPlaying[0]?.original_title}}</div>
             <div class="mt5">
                 <grid_nm gap5 style="color: gold;">
-                    <div><span class="mdi fs18 mdi-star"></span></div>
-                    <div><span class="mdi fs18 mdi-star"></span></div>
-                    <div><span class="mdi fs18 mdi-star"></span></div>
-                    <div><span class="mdi fs18 mdi-star-outline"></span></div>
-                    <div><span class="mdi fs18 mdi-star-outline"></span></div>
+                    <div><span class="iconify fs18" data-icon="mdi:star"></span></div>
+                    <div><span class="iconify fs18" data-icon="mdi:star"></span></div>
+                    <div><span class="iconify fs18" data-icon="mdi:star"></span></div>
+                    <div><span class="iconify fs18" data-icon="mdi:star-outline"></span></div>
+                    <div><span class="iconify fs18" data-icon="mdi:star-outline"></span></div>
                 </grid_nm>
             </div>
             <div class="mt10">
@@ -57,7 +57,7 @@
                         <a href="/movie/{{movie.id}}">
                             <img src="{{imgBase + movie.poster_path}}" class="w100" />
                             <div class="ov bgb40 h pointer">
-                                <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                                <span class="cc z100 cw fs70 iconify tsh60" data-icon="mdi:play-circle"></span>
                             </div>
                         </a>
                     </div>
@@ -77,7 +77,7 @@
                         <a href="/movie/{{movie.id}}">
                             <img src="{{imgBase + movie.poster_path}}" class="w100" />
                             <div class="ov bgb40 h pointer">
-                                <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                                <span class="cc z100 cw fs70 iconify tsh60" data-icon="mdi:play-circle"></span>
                             </div>
                         </a>
                     </div>
@@ -97,7 +97,7 @@
                         <a href="/movie/{{movie.id}}">
                             <img src="{{imgBase + movie.poster_path}}" class="w100" />
                             <div class="ov bgb40 h pointer">
-                                <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                                <span class="cc z100 cw fs70 iconify tsh60" data-icon="mdi:play-circle"></span>
                             </div>
                         </a>
                     </div>
