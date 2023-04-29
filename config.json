@@ -11,10 +11,7 @@
     },
     "apis": [
         {
-            "baseURL":"https://api.themoviedb.org/3/movie",
-            "headers": {
-
-            }
+            "baseURL":"https://api.themoviedb.org/3"
         },
         {
             "baseURL": "https://www.beaapis.com/1",
