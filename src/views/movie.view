@@ -1,58 +1,60 @@
-<div class="ph25 pv20 pv120 cw" bind="imgBase,movie">
-    <div class="pv20"></div>
-    <div class="pv100 ov ba">
-        <div class="pv100"></div>
-        <div class="ov bgw20 cov" style="background-image: URL('{{imgBase+movie.backdrop_path}}');"></div>
-        <div class="ov bgb60"></div>
+<div class="cw" bind="imgBase,movie">
+    <div class="hv100" :if="!movie.hasOwnProperty('id')">
+        <div class="cc fs20">Loading..</div>
     </div>
-    <div class="flexi">
-        <tbl_nm>
-            <cl vt>
-                <div style="width: 300px;" class="movieCard ez">
-                    <img src="{{imgBase + movie.poster_path}}" class="w100 round2x sh40" />
-                    <div class="ov bgb40 h pointer">
-                        <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+    <div :else class="ph25 pv20 pv120">
+        <div class="pv20"></div>
+        <div class="pv100 ov ba">
+            <div class="pv100"></div>
+            <div class="ov bgw20 cov" style="background-image: URL('{{imgBase+movie.backdrop_path}}');"></div>
+            <div class="ov bgb60"></div>
+        </div>
+        <div class="flexi">
+            <tbl_nm>
+                <cl vt>
+                    <div style="width: 300px;" class="movieCard ez">
+                        <img src="{{imgBase + movie.poster_path}}" class="w100 round2x sh40" />
+                        <div class="ov bgb40 h pointer">
+                            <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                        </div>
+                        <button class="sbtn dark w100 mt40 lg">Watch Now</button>
                     </div>
-                    <button class="sbtn dark w100 mt40 lg">Watch Now</button>
-                </div>
-            </cl>
-            <cl sep40></cl>
-            <cl vt class="w80">
-                <div class="m_w100 l tsh60">
-                    <div class="fs34 b900">{{movie.original_title}}</div>
-                    <div class="mt5">
-                        <grid_nm gap5 style="color: gold;">
-                            <div><span class="mdi fs18 mdi-star"></span></div>
-                            <div><span class="mdi fs18 mdi-star"></span></div>
-                            <div><span class="mdi fs18 mdi-star"></span></div>
-                            <div><span class="mdi fs18 mdi-star-outline"></span></div>
-                            <div><span class="mdi fs18 mdi-star-outline"></span></div>
-                        </grid_nm>
-                    </div>
-                    <div class="mt10 w30 fs16 lh22 oh" style="height: 132px;">
-                        {{movie.overview}}
-                    </div>
-                    <div class="mt60 sq30">
-                        <div class="ov bgw20 cov ra w50"
-                            style="background-image: URL('{{imgBase+movie.backdrop_path}}');">
-                            <div class="ov bgb40 pointer">
-                                <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                </cl>
+                <cl sep40></cl>
+                <cl vt class="w80">
+                    <div class="m_w100 l tsh60">
+                        <div class="fs34 b900">{{movie.original_title}}</div>
+                        <div class="mt5">
+                            <grid_nm gap5 style="color: gold;">
+                                <div><span class="mdi fs18 mdi-star"></span></div>
+                                <div><span class="mdi fs18 mdi-star"></span></div>
+                                <div><span class="mdi fs18 mdi-star"></span></div>
+                                <div><span class="mdi fs18 mdi-star-outline"></span></div>
+                                <div><span class="mdi fs18 mdi-star-outline"></span></div>
+                            </grid_nm>
+                        </div>
+                        <div class="mt10 w30 fs16 lh22 oh" style="height: 132px;">
+                            {{movie.overview}}
+                        </div>
+                        <div class="mt60 sq30">
+                            <div class="ov bgw20 cov ra w50"
+                                style="background-image: URL('{{imgBase+movie.backdrop_path}}');">
+                                <div class="ov bgb40 pointer">
+                                    <div class="cc z100 cw fs70 mdi mdi-play-circle tsh60"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </cl>
-        </tbl_nm>
+                </cl>
+            </tbl_nm>
+        </div>
     </div>
 </div>
 <script>
+    st(0);
     var imgBase = "https://image.tmdb.org/t/p/original";
-
     var movie = {};
-    fetch('https://api.themoviedb.org/3/movie/' + nodes[1] + '?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
-        .then(res => res.json())
-        .then((json) => {
-            movie = json;
-            cl(movie);
-        });
+    API.get('/movie/' + nodes[1] + '?api_key=754ad3989128c7d8cfcc82e6591e7f2e').then((r) => {
+        movie = r;
+    });
 </script>

@@ -1,31 +1,37 @@
-<div class="pv150 pb40 bgb cw ph25" bind="nowPlaying,imgBase">
-    <div class="ov cov" style="background-image: URL('{{imgBase + nowPlaying[0].backdrop_path}}');">
-        <div class="ov bgb40"></div>
+<div class="bgb cw" bind="nowPlaying,imgBase">
+    <div class="hv100" :if="!nowPlaying[0].hasOwnProperty('id')">
+        <div class="cc fs20">Loading..</div>
     </div>
-    <div class="w25 m_w100 l tsh60">
-        <div class="fs34 b900">{{nowPlaying[0].original_title}}</div>
-        <div class="mt5">
-            <grid_nm gap5 style="color: gold;">
-                <div><span class="mdi fs18 mdi-star"></span></div>
-                <div><span class="mdi fs18 mdi-star"></span></div>
-                <div><span class="mdi fs18 mdi-star"></span></div>
-                <div><span class="mdi fs18 mdi-star-outline"></span></div>
-                <div><span class="mdi fs18 mdi-star-outline"></span></div>
-            </grid_nm>
+    <div :else class="ph25 pv150 pb40">
+        <div class="ov cov" style="background-image: URL('{{imgBase + nowPlaying[0]?.backdrop_path}}');">
+            <div class="ov bgb40"></div>
         </div>
-        <div class="mt10">
-            {{nowPlaying[0].overview}}
-        </div>
-        <div class="mt40">
-            <grid_nm gaph10>
-                <div class="w50">
-                    <a href="/"><button class="sbtn warning w100">Watch Now</button></a>
-                </div>
+        <div class="w25 m_w100 l tsh60">
+            <div class="fs34 b900">{{nowPlaying[0]?.original_title}}</div>
+            <div class="mt5">
+                <grid_nm gap5 style="color: gold;">
+                    <div><span class="mdi fs18 mdi-star"></span></div>
+                    <div><span class="mdi fs18 mdi-star"></span></div>
+                    <div><span class="mdi fs18 mdi-star"></span></div>
+                    <div><span class="mdi fs18 mdi-star-outline"></span></div>
+                    <div><span class="mdi fs18 mdi-star-outline"></span></div>
+                </grid_nm>
+            </div>
+            <div class="mt10">
+                {{nowPlaying[0]?.overview}}
+            </div>
+            <div class="mt40">
+                <grid_nm gaph10>
+                    <div class="w50">
+                        <a href="/movie/{{{{nowPlaying[0]?.id}}}}"><button
+                                class="sbtn warning w100">Details</button></a>
+                    </div>
 
-                <div class="w50">
-                    <button class="sbtn light outline w100">Add to Watchlist</button>
-                </div>
-            </grid_nm>
+                    <div class="w50">
+                        <button class="sbtn light outline w100">Add to Watchlist</button>
+                    </div>
+                </grid_nm>
+            </div>
         </div>
     </div>
 </div>
@@ -106,28 +112,23 @@
 <div class="pv100"></div>
 <script>
     var imgBase = "https://image.tmdb.org/t/p/original";
+    st(0);
 
     var nowPlaying = [];
-    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
-        .then(res => res.json())
-        .then((json) => {
-            nowPlaying = json.results;
-            cl(nowPlaying);
+    API.get('/movie/now_playing?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
+        .then((r) => {
+            nowPlaying = r.results;
         });
 
     var popular = [];
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
-        .then(res => res.json())
-        .then((json) => {
-            popular = json.results;
-            cl(popular);
+    API.get('/movie/popular?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
+        .then((r) => {
+            popular = r.results;
         });
     var topRated = [];
-    fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
-        .then(res => res.json())
-        .then((json) => {
-            topRated = json.results;
-            cl(topRated);
+    API.get('/movie/top_rated?api_key=754ad3989128c7d8cfcc82e6591e7f2e')
+        .then((r) => {
+            topRated = r.results;
         });
 
 </script>
