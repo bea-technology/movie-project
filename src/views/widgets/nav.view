@@ -6,7 +6,7 @@
 <div class="bgb lh60 ph25 cw">
     <tbl_nm>
         <cl class="l">
-            <a href="/"><span class="mdi mdi-home fs24"></span></a>
+            <a href="/"><span class="iconify fs24" data-icon="mdi:home"></span></a>
         </cl>
         <cl class="c fs16 b">
             <grid_nm gaph40>
@@ -17,12 +17,12 @@
                     <a href="/browse"><div class="mb ph4" n0="browse">Browse</div></a>
                 </div>
                 <div>
-                    <a href="/movies"><div class="mb ph4" n0="movies">Movie TV</div></a>
+                    <a href="/movies"><div class="mb ph4" n0="movies">Movies</div></a>
                 </div>
             </grid_nm>
         </cl>
         <cl class="r">
-            <span class="mdi mdi-heart-outline fs24"></span>
+            <span class="iconify fs24" data-icon="mdi:heart-outline"></span>
         </cl>
     </tbl_nm>
 </div>
